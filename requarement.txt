@@ -1,4 +1,0 @@
-Flask==2.3.3
-python-telegram-bot==22.2
-python-dotenv==1.0.1
-standard-imghdr

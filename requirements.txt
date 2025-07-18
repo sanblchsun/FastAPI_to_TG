@@ -1,0 +1,6 @@
+python-telegram-bot==22.2
+fastapi==0.116.1
+python-dotenv==1.1.1
+loguru==0.7.3
+slowapi==0.1.9
+uvicorn
