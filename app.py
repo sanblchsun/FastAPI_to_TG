@@ -76,4 +76,6 @@ async def receive_message(
         except Exception as e:
             logger.error(f"[{timestamp}] ❌ Ошибка при отправке: {str(e)}")
             return JSONResponse(content={"error": str(e)}, status_code=500)
-        
+    else:
+        print(message)
+        return JSONResponse(content={"status": message}, status_code=200)
