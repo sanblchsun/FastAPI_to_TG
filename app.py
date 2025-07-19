@@ -46,8 +46,8 @@ async def receive_message(
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(f"Получен ключ: {x_api_key}")
     print(f"Ожидаемый ключ: {API_KEY}")
-    print("Заголовки запроса:")
-    print(dict(request.headers))
+    # print("Заголовки запроса:")
+    # print(dict(request.headers))
     if x_api_key != API_KEY:
         logger.warning(f"[{timestamp}] ❌ Отклонённый запрос — Неверный API ключ")
         raise HTTPException(status_code=401, detail="Unauthorized")
