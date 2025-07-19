@@ -63,16 +63,18 @@ async def receive_message(
             status_code=400,
             detail=f"Message too long (max {MAX_MESSAGE_LENGTH} characters)"
         )
-
-    try:
-        await bot.send_message(
-            chat_id=CHAT_ID,
-            text=f"📨 Получено от Bot A: {message}",
-            parse_mode="HTML"
-        )
-        ip = get_remote_address(request)
-        logger.info(f"[{timestamp}] ✅ Сообщение отправлено от API ключа: {x_api_key} — '{message}'. Запрос от IP: {ip}")
-        return JSONResponse(content={"status": "ok"}, status_code=200)
-    except Exception as e:
-        logger.error(f"[{timestamp}] ❌ Ошибка при отправке: {str(e)}")
-        return JSONResponse(content={"error": str(e)}, status_code=500)
+    if message != "support services":
+        try:
+            await bot.send_message(
+                chat_id=CHAT_ID,
+                text=f"📨 Получено от Bot A: {message}",
+                parse_mode="HTML"
+            )
+            ip = get_remote_address(request)
+            logger.info(f"[{timestamp}] ✅ Сообщение отправлено от API ключа: {x_api_key} — '{message}'. Запрос от IP: {ip}")
+            return JSONResponse(content={"status": "ok"}, status_code=200)
+        except Exception as e:
+            logger.error(f"[{timestamp}] ❌ Ошибка при отправке: {str(e)}")
+            return JSONResponse(content={"error": str(e)}, status_code=500)
+        else:
+            print("support services")
